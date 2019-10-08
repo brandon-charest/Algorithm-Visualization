@@ -1,0 +1,37 @@
+import Algorithms.Bubble_Sort as bubble
+import data
+import matplotlib
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+matplotlib.use("TkAgg")
+
+if __name__ == "__main__":
+    msg = "Select sorting method number:\n1. Bubble\n"
+    selection = input(msg)
+    arr = data.get_data()
+
+    if selection == '1':
+        title = "Bubble Sort"
+        sort = bubble.bubble_sort(arr)
+    else:
+        title = ""
+
+    figure, ax = plt.subplots()
+    rec = ax.bar(range(len(arr)), arr, align="edge")
+    text = ax.text(0.02, 0.95, "", transform=ax.transAxes)
+    iteration = [0]
+    ax.set_title(title)
+    ax.set_xlim(0, 100)
+    ax.set_ylim(0, 110)
+
+    def update_figure(arr, rec, iteration):
+        for rec, val, in zip(rec, arr):
+            rec.set_height(val)
+        iteration[0] += 1
+        text.set_text("# of operations: {}".format(iteration[0]))
+
+
+    anim = animation.FuncAnimation(figure, func=update_figure,
+                                   fargs=(rec, iteration), frames=sort, interval=1,
+                                   repeat=False)
+    plt.show()
