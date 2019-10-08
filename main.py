@@ -1,4 +1,4 @@
-import Algorithms.Bubble_Sort as bubble
+import Algorithms.Sort as Sort
 import data
 import matplotlib
 import matplotlib.pyplot as plt
@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     if selection == '1':
         title = "Bubble Sort"
-        sort = bubble.bubble_sort(arr)
+        sort_type = Sort.Bubble_Sort.sort(arr)
     else:
         title = ""
 
@@ -32,6 +32,6 @@ if __name__ == "__main__":
 
 
     anim = animation.FuncAnimation(figure, func=update_figure,
-                                   fargs=(rec, iteration), frames=sort, interval=1,
+                                   fargs=(rec, iteration), frames=sort_type, interval=1,
                                    repeat=False)
     plt.show()
