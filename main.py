@@ -6,7 +6,7 @@ import matplotlib.animation as animation
 matplotlib.use("TkAgg")
 
 if __name__ == "__main__":
-    msg = "Select sorting method number:\n1. Bubble\n2. Merge\n3. Heap\n"
+    msg = "Select sorting method number:\n1. Bubble\n2. Merge\n3. Heap\n4. Quick\n"
     selection = input(msg)
     arr = data.get_data()
 
@@ -19,6 +19,9 @@ if __name__ == "__main__":
     elif selection == '3':
         title = "Heap Sort"
         sort_type = Sort.Heap_Sort.sort(arr)
+    elif selection == '4':
+        title = "Quick Sort"
+        sort_type = Sort.Quick_Sort.sort(arr)
     else:
         title = ""
         sort_type = None
