@@ -6,13 +6,16 @@ import matplotlib.animation as animation
 matplotlib.use("TkAgg")
 
 if __name__ == "__main__":
-    msg = "Select sorting method number:\n1. Bubble\n"
+    msg = "Select sorting method number:\n1. Bubble\n2. Merge\n"
     selection = input(msg)
     arr = data.get_data()
 
     if selection == '1':
         title = "Bubble Sort"
         sort_type = Sort.Bubble_Sort.sort(arr)
+    elif selection == '2':
+        title = "Merge Sort"
+        sort_type = Sort.Merge_Sort.sort(arr)
     else:
         title = ""
 
@@ -28,7 +31,7 @@ if __name__ == "__main__":
         for rec, val, in zip(rec, arr):
             rec.set_height(val)
         iteration[0] += 1
-        text.set_text("# of operations: {}".format(iteration[0]))
+        text.set_text(f"# of operations: {iteration[0]}")
 
 
     anim = animation.FuncAnimation(figure, func=update_figure,
