@@ -6,7 +6,7 @@ import matplotlib.animation as animation
 matplotlib.use("TkAgg")
 
 if __name__ == "__main__":
-    msg = "Select sorting method number:\n1. Bubble\n2. Merge\n3. Heap\n4. Quick\n5. Insertion\n"
+    msg = "Select sorting method number:\n1. Bubble\t2. Merge\t3. Heap\n4. Quick\t5. Insertion\t6. Cocktail Sort\n"
     selection = input(msg)
     arr = data.get_data()
 
@@ -25,6 +25,9 @@ if __name__ == "__main__":
     elif selection == '5':
         title = "Insertion Sort"
         sort_type = Sort.Insertion_Sort.sort(arr)
+    elif selection == '6':
+        title = "Cocktail Shaker Sort"
+        sort_type = Sort.Cocktail_Sort.sort(arr)
     else:
         title = ""
         sort_type = None
